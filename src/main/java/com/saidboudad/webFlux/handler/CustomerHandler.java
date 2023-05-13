@@ -32,7 +32,7 @@ public class CustomerHandler {
 
     public Mono<ServerResponse> saveCustomer(ServerRequest request){
         Mono<Customer> customerMono = request.bodyToMono(Customer.class);
-        Mono<String> saveResponse = customerMono.map(Dto -> Dto.getId() + " :" + Dto.getName()); //we just print it 
+        Mono<String> saveResponse = customerMono.map(Dto -> Dto.getId() + " :" + Dto.getName()); // just print it
         return ServerResponse.ok().body(saveResponse,String.class);
     }
 }
