@@ -35,9 +35,9 @@ public class CustomerDao {
                 .map(id -> new Customer(id,"customer "+id));
     }
 
+    //Using functional endpoints
     public Flux<Customer> getCostomersList(){
-        return Flux.range(1,25)
-                .delayElements(Duration.ofSeconds(1))
+        return Flux.range(1,10)
                 .doOnNext(id -> System.out.println("processing count in reactive flow :"+id))
                 .map(id -> new Customer(id,"customer "+id));
     }
